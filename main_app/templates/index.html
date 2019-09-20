@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Wish List</h1>
+
+<form action="{% url 'add_wish' %}" method="post">
+  {% csrf_token %}
+  <input type="submit" class="btn" value="Add Wish"/>
+</form>
+
+{% if wishes.count %}
+  <table>
+  <tbody>
+    <tr>
+      <th>Description</th>
+      <th>Quantity</th>
+      <th></th>
+    {% for wish in wishes %}
+    <tr>
+      <td>{{ wish.description }}</td>
+      <td>{{ wish.quantity }}</td>
+      <td>
+        <form action="{% url 'delete_wish' wish.id %}" method="post">
+          {% csrf_token %}
+          <input type="submit" class="btn" value="X"/>
+        </form>
+      </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+{% else %}
+  <h3>No Wishes Exist</h3>
+{% endif %}
+
+{% endblock %}

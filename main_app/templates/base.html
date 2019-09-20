@@ -1,0 +1,42 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Level Up Your Life</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+  <body class="mbody">
+    <header>
+      <div class="navbar-fixed">
+      <nav>
+        <div class="nav-wrapper light-blue">
+          <div class="container">
+            <ul>
+              <li><a href="/" class="brand-logo">Unit 3 Assessment</a></li>
+            </ul>
+            <!-- nav bar links --> 
+            <ul class="right">
+              <li><a href="{% url 'home' %}">Wish List</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+    </header>
+  
+  <main class="container">
+    {% block content %}
+    {% endblock %}
+  </main>
+  <!-- footer -->
+  <footer class="page-footer light-blue">
+    <div class="right">All Rights Reserved, &copy; 2019 Andrew Theismann</div>
+  </footer>
+</body>
+</html>
